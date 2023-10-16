@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ToDoList1</string>
+    <string name="heading_title">Список дел</string>
+</resources>
