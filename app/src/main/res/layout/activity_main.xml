@@ -57,5 +57,16 @@
         android:padding="8dp"
         />
 
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/check_all"
+        android:textColor="@color/linkColor"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/delete_all_checked"
+        android:textColor="@color/linkColor"
+        />
 </LinearLayout>
