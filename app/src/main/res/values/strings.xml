@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">ToDoList1</string>
     <string name="heading_title">Список дел</string>
-    <string name="check_all"><u>Пометить все</u></string>
-    <string name="delete_all_checked"><u>Удалить все помеченный</u></string>
+    <string name="check_all">Пометить все</string>
+    <string name="delete_all_checked">Удалить все помеченные</string>
+    <string name="et_hint">Что нужно сделать?</string>
 </resources>
