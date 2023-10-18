@@ -8,4 +8,5 @@
     <string name="active">Активные</string>
     <string name="completed">Выполненные</string>
     <string name="add">Добавить</string>
+    <string name="record">Запись</string>
 </resources>
