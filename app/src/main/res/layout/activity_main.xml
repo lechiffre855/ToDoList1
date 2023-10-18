@@ -31,14 +31,13 @@
             android:id="@+id/et_what_need_to_be_done"
             android:layout_width="@dimen/et_and_bt_width"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/transparent"
             android:gravity="center"
             android:hint="@string/et_hint"
             android:inputType="text"
             android:paddingBottom="15dp"
-            android:textSize="24sp"
-            android:backgroundTint="@color/transparent"/>
+            android:textSize="24sp" />
     </com.google.android.material.card.MaterialCardView>
-
     <Button
         android:layout_width="@dimen/et_and_bt_width"
         android:layout_height="wrap_content"
@@ -46,13 +45,12 @@
         android:layout_marginTop="5dp"
         android:backgroundTint="#D0CDF1"
         android:padding="8dp"
-        android:text="Добавить"
+        android:text="@string/add"
         android:textColor="@color/black"
         android:textSize="21sp"
         android:textStyle="normal"
         app:strokeColor="#120909"
         app:strokeWidth="2dp" />
-
     <LinearLayout
         android:layout_width="@dimen/et_and_bt_width"
         android:layout_height="wrap_content"
@@ -62,41 +60,88 @@
 
         >
 
-        <TextView
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="start"
             android:layout_weight="1"
-            android:gravity="start"
+            android:backgroundTint="#EDEDFD"
             android:text="@string/check_all"
-            android:textColor="@color/linkColor"
-            android:textSize="18sp" />
+            android:textColor="@color/black"
+            android:textSize="17sp"
 
-        <TextView
+            />
+
+        <Button
+            android:id="@+id/bt_delete_all_checked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginStart="30dp"
             android:layout_weight="1"
-            android:gravity="end"
+            android:backgroundTint="#FFBDB5"
+            android:paddingHorizontal="0.1dp"
             android:text="@string/delete_all_checked"
-            android:textColor="@color/linkColor"
-            android:textSize="18sp" />
+            android:textColor="@color/black"
+            android:textSize="17sp" />
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:gravity="start"-->
+        <!--            android:text="@string/check_all"-->
+        <!--            android:textColor="@color/linkColor"-->
+        <!--            android:textSize="18sp" />-->
+
+        <!--        <TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_weight="1"-->
+        <!--            android:gravity="end"-->
+        <!--            android:text="@string/delete_all_checked"-->
+        <!--            android:textColor="@color/linkColor"-->
+        <!--            android:textSize="18sp" />-->
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="@dimen/et_and_bt_width"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal">
-
+        android:layout_marginTop="45dp"
+        android:layout_gravity="center_horizontal"
+        android:scrollbars="vertical">
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:layout_width="@dimen/et_and_bt_width"
         android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal"
-        android:layout_gravity="center_horizontal">
-        
+        android:layout_marginTop="40dp">
         <TextView
-            android:layout_width=""
-            android:layout_height=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="18dp"
+            android:gravity="center"
+            android:text="@string/all"
+            android:textColor="@color/linkColor"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="55dp"
+            android:gravity="center"
+            android:text="@string/active"
+            android:textColor="@color/linkColor"
+            android:textSize="18sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:gravity="center"
+            android:text="@string/completed"
+            android:textColor="@color/linkColor"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>
