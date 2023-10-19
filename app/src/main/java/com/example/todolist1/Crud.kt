@@ -12,18 +12,23 @@ class Crud {
                 return "Запись добавлена"
             }
         }
-        fun delete(index: Int): String {
-            if (tasksList[index].getActive()=true)
-            tasksList.removeAt(index)
-            return "Запись удалена"
-        }
-        fun deleteChecked() {
-            tasksList.forEach {
-                if {
-                    it.getChecked() = true
-                }
 
+        fun delete(index: Int): String {
+            if (tasksList[index].getActive() != true) {
+                tasksList.removeAt(index)
+                return "Запись удалена"
+            } else {
+                tasksList[index].setActive(false)
+                return "Запись выполнена"
             }
         }
+
+        fun deleteChecked() {
+            tasksList.forEach {
+                if (it.getChecked() == true)
+                    tasksList.remove(it)
+            }
+        }
+
     }
 }
