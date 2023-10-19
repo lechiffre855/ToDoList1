@@ -23,12 +23,25 @@ class Crud {
             }
         }
 
-        fun deleteChecked() {
+        fun deleteChecked(): String {
             tasksList.forEach {
                 if (it.getChecked() == true)
-                    tasksList.remove(it)
+                    if (it.getActive() != true) {
+                        tasksList.remove(it)
+                    } else {
+                        it.setActive(false)
+                    }
             }
+            return "Успешно"
         }
 
+        fun edit(index: Int, text: String): String {
+            if (text.isNullOrBlank())
+                return "Добавьте хотя бы один символ"
+            else {
+                tasksList[index].setTextTask(text)
+                return "Запись добавлена"
+            }
+        }
     }
 }

@@ -4,6 +4,12 @@ data class Task(private var textTask: String) {
     private var checked: Boolean = false
     private var active: Boolean = true
 
+    fun getTextTask(): String {
+        return textTask
+    }
+    fun setTextTask(textTask: String) {
+        this.textTask = textTask
+    }
     fun setChecked(status: Boolean) {
         checked = status
     }
