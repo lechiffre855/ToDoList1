@@ -39,6 +39,7 @@
             android:textSize="24sp" />
     </com.google.android.material.card.MaterialCardView>
     <Button
+        android:id="@+id/bt_add"
         android:layout_width="@dimen/et_and_bt_width"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -73,7 +74,7 @@
             />
 
         <Button
-            android:id="@+id/bt_delete_all_checked"
+            android:id="@+id/bt_delete_checked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"

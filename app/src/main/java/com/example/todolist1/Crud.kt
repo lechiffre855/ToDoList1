@@ -4,12 +4,13 @@ class Crud {
     companion object {
         private val tasksList: MutableList<Task> = mutableListOf()
 
-        fun add(taskText: String): String {
+        lateinit var addStatus: String
+        fun add(taskText: String) {
             if (taskText.isNullOrBlank())
-                return "Добавьте хотя бы один символ"
+                addStatus = "Добавьте хотя бы один символ"
             else {
                 tasksList.add(Task(taskText))
-                return "Запись добавлена"
+                addStatus = "Запись добавлена"
             }
         }
 
@@ -24,16 +25,20 @@ class Crud {
             }
         }
 
-        fun deleteChecked(): String {
-            tasksList.forEach {
-                if (it.getChecked() == true)
-                    if (it.getActive() != true) {
-                        tasksList.remove(it)
-                    } else {
-                        it.setActive(false)
-                    }
-            }
-            return "Успешно"
+        lateinit var deleteCheckedStatus: String
+        fun deleteChecked() {
+            if (tasksList.any { it.getChecked() == true }) {
+                tasksList.forEach {
+                    if (it.getChecked() == true)
+                        if (it.getActive() != true) {
+                            tasksList.remove(it)
+                        } else {
+                            it.setActive(false)
+                        }
+                }
+                deleteCheckedStatus = "Успешно"
+            } else
+                deleteCheckedStatus = "Ни один элемент не помечен"
         }
 
         fun edit(index: Int, text: String): String {

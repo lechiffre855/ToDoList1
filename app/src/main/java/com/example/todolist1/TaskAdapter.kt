@@ -14,16 +14,30 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
 
     inner class TaskHolder(@NonNull itemView: View): ViewHolder(itemView) {
-        private var taskText: TextView = itemView.findViewById(R.id.tv_task_text)
-        private var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
-        private var deleteButton: Button = itemView.findViewById(R.id.bt_delete)
         private var editText: EditText = itemView.findViewById(R.id.et_what_need_to_be_done)
+        private val addButton: Button = itemView.findViewById(R.id.bt_add)
         private val checkAll: Button = itemView.findViewById(R.id.bt_check_all)
+        private val deleteCheckedButton: Button = itemView.findViewById(R.id.bt_delete_checked)
+        private var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
+        private var taskText: TextView = itemView.findViewById(R.id.tv_task_text)
+        private var deleteButton: Button = itemView.findViewById(R.id.bt_delete)
         init {
-            deleteButton.setOnClickListener(object: View.OnClickListener {
+            addButton.setOnClickListener(object : OnClickListener {
                 override fun onClick(v: View?) {
-                    Crud.delete(bindingAdapterPosition)
-                    val toast = Toast.makeText(parent, Crud.deleteStatus, Toast.LENGTH_SHORT)
+                    Crud.add(editText.text.toString())
+                    val toast = Toast.makeText(parent, Crud.addStatus, Toast.LENGTH_SHORT)
+                    toast.show()
+                }
+            })
+            checkAll.setOnClickListener(object: OnClickListener {
+                override fun onClick(v: View?) {
+                    Crud.checkAll()
+                }
+            })
+            deleteCheckedButton.setOnClickListener(object: OnClickListener {
+                override fun onClick(v: View?) {
+                    Crud.deleteChecked()
+                    val toast = Toast.makeText(parent, Crud.deleteCheckedStatus, Toast.LENGTH_SHORT)
                     toast.show()
                 }
             })
@@ -32,9 +46,11 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
                     Crud.check(bindingAdapterPosition)
                 }
             })
-            checkAll.setOnClickListener(object: OnClickListener {
+            deleteButton.setOnClickListener(object: View.OnClickListener {
                 override fun onClick(v: View?) {
-                    Crud.checkAll()
+                    Crud.delete(bindingAdapterPosition)
+                    val toast = Toast.makeText(parent, Crud.deleteStatus, Toast.LENGTH_SHORT)
+                    toast.show()
                 }
             })
         }
