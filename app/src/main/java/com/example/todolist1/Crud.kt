@@ -43,5 +43,11 @@ class Crud {
                 return "Запись добавлена"
             }
         }
+        fun check(index: Int, value: Boolean){
+            tasksList[index].setChecked(value)
+        }
+        fun checkAll(value: Boolean){
+            tasksList.forEach { it.setChecked(value) }
+        }
     }
 }
