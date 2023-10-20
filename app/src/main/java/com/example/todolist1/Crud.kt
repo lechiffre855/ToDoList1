@@ -6,7 +6,7 @@ class Crud {
 
         lateinit var addStatus: String
         fun add(taskText: String) {
-            if (taskText.isNullOrBlank())
+            if (taskText.isBlank())
                 addStatus = "Добавьте хотя бы один символ"
             else {
                 tasksList.add(Task(taskText))
