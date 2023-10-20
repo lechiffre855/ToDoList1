@@ -2,7 +2,7 @@ package com.example.todolist1
 
 class Crud {
     companion object {
-        private var tasksList: MutableList<Task> = mutableListOf()
+        private val tasksList: MutableList<Task> = mutableListOf()
 
         fun add(taskText: String): String {
             if (taskText.isNullOrBlank())
