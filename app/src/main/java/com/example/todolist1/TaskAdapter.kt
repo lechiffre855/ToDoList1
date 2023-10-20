@@ -1,7 +1,9 @@
 package com.example.todolist1
 
+import android.content.Context
 import android.view.View
 import android.view.View.OnClickListener
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
@@ -11,7 +13,7 @@ import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 
-class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
+class TaskAdapter(private val parent: Context): RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
 
     inner class TaskHolder(@NonNull itemView: View): ViewHolder(itemView) {
         private var editText: EditText = itemView.findViewById(R.id.et_what_need_to_be_done)
@@ -57,6 +59,18 @@ class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskHolder>() {
         fun bind(taskIndex: Int) {
             taskText.text = taskIndex.toString()+ ". " + editText.text.toString()
         }
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskHolder {
+        TODO("Not yet implemented")
+    }
+
+    override fun getItemCount(): Int {
+        TODO("Not yet implemented")
+    }
+
+    override fun onBindViewHolder(holder: TaskHolder, position: Int) {
+        TODO("Not yet implemented")
     }
 
 }
