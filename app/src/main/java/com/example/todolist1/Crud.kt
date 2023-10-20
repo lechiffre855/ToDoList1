@@ -13,13 +13,14 @@ class Crud {
             }
         }
 
-        fun delete(index: Int): String {
+        lateinit var deleteStatus: String
+        fun delete(index: Int) {
             if (tasksList[index].getActive() != true) {
                 tasksList.removeAt(index)
-                return "Запись удалена"
+                deleteStatus = "Запись удалена"
             } else {
                 tasksList[index].setActive(false)
-                return "Запись выполнена"
+                deleteStatus = "Запись выполнена"
             }
         }
 
@@ -43,11 +44,20 @@ class Crud {
                 return "Запись добавлена"
             }
         }
-        fun check(index: Int, value: Boolean){
-            tasksList[index].setChecked(value)
+
+        fun check(index: Int){
+            val currentStatus = tasksList[index].getChecked()
+            tasksList[index].setChecked(!currentStatus)
         }
-        fun checkAll(value: Boolean){
-            tasksList.forEach { it.setChecked(value) }
+
+        var defaultCheckedStatus = false
+        fun checkAll(){
+            defaultCheckedStatus = !defaultCheckedStatus
+
+            if (defaultCheckedStatus == true)
+                tasksList.forEach {it.setChecked(true)}
+            else
+                tasksList.forEach {it.setChecked(false)}
         }
     }
 }
