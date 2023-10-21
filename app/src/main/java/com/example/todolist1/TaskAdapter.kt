@@ -1,6 +1,7 @@
 package com.example.todolist1
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
@@ -57,20 +58,28 @@ class TaskAdapter(private val parent: Context): RecyclerView.Adapter<TaskAdapter
             })
         }
         fun bind(taskIndex: Int) {
-            taskText.text = taskIndex.toString()+ ". " + editText.text.toString()
+            taskText.text = Crud.getTaskList()[taskIndex].getTextTask()
         }
     }
 
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskHolder {
-        TODO("Not yet implemented")
+//        val context = parent.context
+        val inflater = LayoutInflater.from(parent.context)
+        val layoutForListItem = R.layout.task_content
+        val view = inflater.inflate(layoutForListItem, parent, false)
+
+        var taskHolder = TaskHolder(view)
+        return taskHolder
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return Crud.getTaskList().size
     }
 
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.bind(position)
     }
 
 }

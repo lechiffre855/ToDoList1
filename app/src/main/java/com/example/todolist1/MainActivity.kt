@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     private lateinit var taskList: RecyclerView
-    private lateinit var taskAdapter: TaskAdapter
+//    private lateinit var taskAdapter: TaskAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -17,5 +17,7 @@ class MainActivity : AppCompatActivity() {
         taskList.layoutManager = LinearLayoutManager(this)
         taskList.setHasFixedSize(true)
 
+//        taskAdapter = TaskAdapter(this)
+        taskList.adapter = TaskAdapter(this)
     }
 }

@@ -3,6 +3,9 @@ package com.example.todolist1
 class Crud {
     companion object {
         private val tasksList: MutableList<Task> = mutableListOf()
+        fun getTaskList(): MutableList<Task> {
+            return tasksList
+        }
 
         lateinit var addStatus: String
         fun add(taskText: String) {
