@@ -28,17 +28,19 @@
         app:strokeColor="@color/black"
         app:strokeWidth="2dp">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_what_need_to_be_done"
-            android:layout_width="@dimen/et_and_bt_width"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/transparent"
-            android:gravity="center"
+            android:gravity="start|top"
+            android:paddingHorizontal="17dp"
             android:hint="@string/et_hint"
-            android:inputType="text"
             android:paddingBottom="15dp"
-            android:textSize="24sp" />
+            android:textSize="24sp"/>
+
     </com.google.android.material.card.MaterialCardView>
+
     <Button
         android:id="@+id/bt_add"
         android:layout_width="@dimen/et_and_bt_width"
