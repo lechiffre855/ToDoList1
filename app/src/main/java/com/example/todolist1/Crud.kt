@@ -2,9 +2,10 @@ package com.example.todolist1
 
 class Crud {
     companion object {
-        private val tasksList: MutableList<Task> = mutableListOf()
-        fun getTaskList(): MutableList<Task> {
-            return tasksList
+        private var tasksList: MutableList<Task> = mutableListOf()
+
+        fun getTextConcreteTask(index: Int): String {
+            return tasksList[index].getTextTask()
         }
 
         lateinit var addStatus: String
@@ -44,12 +45,13 @@ class Crud {
                 deleteCheckedStatus = "Ни один элемент не помечен"
         }
 
-        fun edit(index: Int, text: String): String {
+        lateinit var editStatus: String
+        fun edit(index: Int, text: String) {
             if (text.isNullOrBlank())
-                return "Добавьте хотя бы один символ"
+                editStatus = "Добавьте хотя бы один символ"
             else {
                 tasksList[index].setTextTask(text)
-                return "Запись добавлена"
+                editStatus = "Запись добавлена"
             }
         }
 

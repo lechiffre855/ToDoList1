@@ -1,50 +1,46 @@
 package com.example.todolist1
 
+import android.app.Activity
 import android.view.View
+import android.view.View.OnClickListener
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
+import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 
-class InterfaceDispatcher {
-    val TaskAdapter.TaskHolder.get
+class InterfaceDispatcher: OnClickListener {
 
-    private var editText: EditText = itemView.findViewById(R.id.et_what_need_to_be_done)
-    private val addButton: Button = itemView.findViewById(R.id.bt_add)
-    private val checkAll: Button = itemView.findViewById(R.id.bt_check_all)
-    private val deleteCheckedButton: Button = itemView.findViewById(R.id.bt_delete_checked)
-    private var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
-    private var deleteButton: Button = itemView.findViewById(R.id.bt_delete)
+    override fun onClick(v: View) {
+        when (v.id) {
+            R.id.bt_add -> {
+                Crud.add(editText.text.toString())
+                val toast = Toast.makeText(parent, Crud.addStatus, Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            R.id.bt_check_all -> {
+                Crud.checkAll()
+            }
+            R.id.bt_delete_checked -> {
+                Crud.deleteChecked()
+                val toast = Toast.makeText(parent, Crud.deleteCheckedStatus, Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            R.id.checkBox -> {
+                Crud.check(bindingAdapterPosition)
+            }
 
-    addButton.setOnClickListener(object : View.OnClickListener {
-        override fun onClick(v: View?) {
-            Crud.add(editText.text.toString())
-            val toast = Toast.makeText(parent, Crud.addStatus, Toast.LENGTH_SHORT)
-            toast.show()
+            R.id.bt_delete -> {
+                Crud.delete(bindingAdapterPosition)
+                val toast = Toast.makeText(parent, Crud.deleteStatus, Toast.LENGTH_SHORT)
+                toast.show()
+            }
+            R.id.tv_task_text -> {
+                Crud.edit(index, String)
+                val toast = Toast.makeText(parent, Crud.editStatus, Toast.LENGTH_SHORT)
+                toast.show()
+            }
         }
-    })
-    checkAll.setOnClickListener(object: View.OnClickListener {
-        override fun onClick(v: View?) {
-            Crud.checkAll()
-        }
-    })
-    deleteCheckedButton.setOnClickListener(object: View.OnClickListener {
-        override fun onClick(v: View?) {
-            Crud.deleteChecked()
-            val toast = Toast.makeText(parent, Crud.deleteCheckedStatus, Toast.LENGTH_SHORT)
-            toast.show()
-        }
-    })
-    checkBox.setOnClickListener(object: View.OnClickListener {
-        override fun onClick(v: View?) {
-            Crud.check(bindingAdapterPosition)
-        }
-    })
-    deleteButton.setOnClickListener(object: View.OnClickListener {
-        override fun onClick(v: View?) {
-            Crud.delete(bindingAdapterPosition)
-            val toast = Toast.makeText(parent, Crud.deleteStatus, Toast.LENGTH_SHORT)
-            toast.show()
-        }
-    })
+    }
 }
