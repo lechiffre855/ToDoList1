@@ -4,6 +4,10 @@ class Crud {
     companion object {
         private var tasksList: MutableList<Task> = mutableListOf()
 
+        fun getTaskListSize(): Int {
+            return tasksList.size
+        }
+
         fun getTextConcreteTask(index: Int): String {
             return tasksList[index].getTextTask()
         }

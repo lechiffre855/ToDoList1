@@ -19,6 +19,15 @@ class TaskAdapter(private val parent: Context): RecyclerView.Adapter<TaskAdapter
     inner class TaskHolder(@NonNull itemView: View): ViewHolder(itemView) {
 
         private var taskText: TextView = itemView.findViewById(R.id.tv_task_text)
+        private var checkBox: CheckBox = itemView.findViewById(R.id.checkBox)
+        private val deleteButton: Button = itemView.findViewById(R.id.bt_delete)
+
+        init {
+            checkBox.setOnClickListener(InterfaceDispatcher(bindingAdapterPosition))
+        //            taskText.setOnClickListener(InterfaceDispatcher())
+            // TODO
+            deleteButton.setOnClickListener(InterfaceDispatcher(bindingAdapterPosition))
+        }
         fun bind(taskIndex: Int) {
             taskText.text = Crud.getTextConcreteTask(taskIndex)
         }
@@ -37,7 +46,7 @@ class TaskAdapter(private val parent: Context): RecyclerView.Adapter<TaskAdapter
     }
 
     override fun getItemCount(): Int {
-        return Crud.getTaskList().size
+        return Crud.getTaskListSize()
     }
 
     override fun onBindViewHolder(holder: TaskHolder, position: Int) {
