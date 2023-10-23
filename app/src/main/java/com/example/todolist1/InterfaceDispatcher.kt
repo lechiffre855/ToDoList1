@@ -40,6 +40,7 @@ class InterfaceDispatcher: OnClickListener {
                 Crud.add(editText.text.toString())
                 val toast = Toast.makeText(parent, Crud.addStatus, Toast.LENGTH_SHORT)
                 toast.show()
+                editText.setText("")
             }
             R.id.bt_check_all -> {
                 Crud.checkAll()

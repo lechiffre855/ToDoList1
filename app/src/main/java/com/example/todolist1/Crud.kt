@@ -17,7 +17,7 @@ class Crud {
             if (taskText.isBlank())
                 addStatus = "Добавьте хотя бы один символ"
             else {
-                tasksList.add(Task(taskText))
+                tasksList.add(0, Task(taskText))
                 addStatus = "Запись добавлена"
             }
         }
