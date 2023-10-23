@@ -1,6 +1,7 @@
 package com.example.todolist1
 
 import android.app.Activity
+import android.content.Context
 import android.view.View
 import android.view.View.OnClickListener
 import android.widget.Button
@@ -11,6 +12,27 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class InterfaceDispatcher: OnClickListener {
+
+    private lateinit var editText: EditText
+    private lateinit var parent: Context
+    private var bindingAdapterPosition: Int = 0
+
+    constructor(parent: Context) {
+        this.parent = parent
+    }
+    constructor(editText: EditText, parent: Context) {
+        this.editText = editText
+        this.parent = parent
+    }
+    constructor(bindingAdapterPosition: Int) {
+        this.bindingAdapterPosition = bindingAdapterPosition
+    }
+    constructor(bindingAdapterPosition: Int, parent: Context) {
+        this.bindingAdapterPosition = bindingAdapterPosition
+        this.parent = parent
+    }
+    constructor(){
+    }
 
     override fun onClick(v: View) {
         when (v.id) {
@@ -36,11 +58,11 @@ class InterfaceDispatcher: OnClickListener {
                 val toast = Toast.makeText(parent, Crud.deleteStatus, Toast.LENGTH_SHORT)
                 toast.show()
             }
-            R.id.tv_task_text -> {
-                Crud.edit(index, String)
-                val toast = Toast.makeText(parent, Crud.editStatus, Toast.LENGTH_SHORT)
-                toast.show()
-            }
+//            R.id.tv_task_text -> {
+//                Crud.edit(index, String)
+//                val toast = Toast.makeText(parent, Crud.editStatus, Toast.LENGTH_SHORT)
+//                toast.show()
+//            }
         }
     }
 }

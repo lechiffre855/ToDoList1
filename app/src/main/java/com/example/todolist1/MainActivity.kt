@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         deleteCheckedButton = findViewById(R.id.bt_delete_checked)
         editText = findViewById(R.id.et_what_need_to_be_done)
 
-        addButton.setOnClickListener(InterfaceDispatcher(textToAdd)
+        addButton.setOnClickListener(InterfaceDispatcher(editText, this))
         checkAllButton.setOnClickListener(InterfaceDispatcher())
         deleteCheckedButton.setOnClickListener(InterfaceDispatcher())
 

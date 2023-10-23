@@ -26,7 +26,7 @@ class TaskAdapter(private val parent: Context): RecyclerView.Adapter<TaskAdapter
             checkBox.setOnClickListener(InterfaceDispatcher(bindingAdapterPosition))
         //            taskText.setOnClickListener(InterfaceDispatcher())
             // TODO
-            deleteButton.setOnClickListener(InterfaceDispatcher(bindingAdapterPosition))
+            deleteButton.setOnClickListener(InterfaceDispatcher(bindingAdapterPosition, parent))
         }
         fun bind(taskIndex: Int) {
             taskText.text = Crud.getTextConcreteTask(taskIndex)
