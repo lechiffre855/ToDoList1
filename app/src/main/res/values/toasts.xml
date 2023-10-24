@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_smth">Добавьте хотя бы один символ!</string>
+    <string name="task_added">Запись добавлена</string>
+    <string name="task_deleted">Запись удалена</string>
+    <string name="task_completed">Запись выполнена</string>
+    <string name="delete_checked_status_ok">Успешно!</string>
+    <string name="delete_checked_status_bad">Ни один элемент не помечен</string>
+    <string name=""></string>
+    <string name=""></string>
+    <string name=""></string>
+</resources>

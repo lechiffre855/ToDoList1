@@ -1,8 +1,17 @@
 package com.example.todolist1
 
+import android.content.Context
+import android.content.res.Resources
+
+
 class Crud {
     companion object {
         private var tasksList: MutableList<Task> = mutableListOf()
+        private lateinit var resources: Resources
+
+        fun setResources(resources: Resources) {
+            this.resources = resources
+        }
 
         fun getTaskListSize(): Int {
             return tasksList.size
@@ -15,10 +24,10 @@ class Crud {
         lateinit var addStatus: String
         fun add(taskText: String) {
             if (taskText.isBlank())
-                addStatus = "Добавьте хотя бы один символ"
+                addStatus = resources.getString(R.string.add_smth)
             else {
                 tasksList.add(0, Task(taskText))
-                addStatus = "Запись добавлена"
+                addStatus = resources.getString(R.string.task_added)
             }
         }
 
@@ -26,10 +35,10 @@ class Crud {
         fun delete(index: Int) {
             if (tasksList[index].getActive() != true) {
                 tasksList.removeAt(index)
-                deleteStatus = "Запись удалена"
+                deleteStatus = resources.getString(R.string.task_deleted)
             } else {
                 tasksList[index].setActive(false)
-                deleteStatus = "Запись выполнена"
+                deleteStatus = resources.getString(R.string.task_completed)
             }
         }
 
@@ -44,18 +53,18 @@ class Crud {
                             it.setActive(false)
                         }
                 }
-                deleteCheckedStatus = "Успешно"
+                deleteCheckedStatus = resources.getString(R.string.delete_checked_status_ok)
             } else
-                deleteCheckedStatus = "Ни один элемент не помечен"
+                deleteCheckedStatus = resources.getString(R.string.delete_checked_status_bad)
         }
 
         lateinit var editStatus: String
         fun edit(index: Int, text: String) {
             if (text.isNullOrBlank())
-                editStatus = "Добавьте хотя бы один символ"
+                editStatus = resources.getString(R.string.add_smth)
             else {
                 tasksList[index].setTextTask(text)
-                editStatus = "Запись добавлена"
+                editStatus = resources.getString(R.string.task_added)
             }
         }
 

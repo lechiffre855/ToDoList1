@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        Crud.setResources(this.resources)
+
         addButton = findViewById(R.id.bt_add)
         checkAllButton = findViewById(R.id.bt_check_all)
         deleteCheckedButton = findViewById(R.id.bt_delete_checked)
@@ -30,11 +32,9 @@ class MainActivity : AppCompatActivity() {
 
 
         taskList = findViewById(R.id.rv_tasks)
-//        val linearLayoutManager = LinearLayoutManager(this)
         taskList.layoutManager = LinearLayoutManager(this)
         taskList.setHasFixedSize(true)
 
-//        taskAdapter = TaskAdapter(this)
         taskList.adapter = TaskAdapter(this)
     }
 }
