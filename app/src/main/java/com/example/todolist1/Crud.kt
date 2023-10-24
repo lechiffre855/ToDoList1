@@ -1,8 +1,6 @@
 package com.example.todolist1
 
-import android.content.Context
 import android.content.res.Resources
-
 
 class Crud {
     companion object {
