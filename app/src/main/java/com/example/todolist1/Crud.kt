@@ -1,10 +1,11 @@
 package com.example.todolist1
 
 import android.content.res.Resources
+import java.util.LinkedList
 
 class Crud {
     companion object {
-        private var tasksList: MutableList<Task> = mutableListOf()
+        private var tasksList = LinkedList<Task>()
         private lateinit var resources: Resources
 
         fun setResources(resources: Resources) {
@@ -24,7 +25,7 @@ class Crud {
             if (taskText.isBlank())
                 addStatus = resources.getString(R.string.add_smth)
             else {
-                tasksList.add(0, Task(taskText))
+                tasksList.addFirst(Task(taskText))
                 addStatus = resources.getString(R.string.task_added)
             }
         }
