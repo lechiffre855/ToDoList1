@@ -21,10 +21,10 @@ class MainActivity : AppCompatActivity() {
 
         Crud.setResources(this.resources)
 
+        editText = findViewById(R.id.et_what_need_to_be_done)
         addButton = findViewById(R.id.bt_add)
         checkAllButton = findViewById(R.id.bt_check_all)
         deleteCheckedButton = findViewById(R.id.bt_delete_checked)
-        editText = findViewById(R.id.et_what_need_to_be_done)
 
         addButton.setOnClickListener(InterfaceDispatcher(editText, this))
         checkAllButton.setOnClickListener(InterfaceDispatcher())

@@ -16,7 +16,7 @@ class Crud {
             return tasksList.size
         }
 
-        fun getTextConcreteTask(index: Int): String {
+        fun getTextCertainTask(index: Int): String {
             return tasksList[index].getTextTask()
         }
 

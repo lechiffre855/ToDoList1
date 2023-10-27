@@ -31,8 +31,7 @@ class InterfaceDispatcher: OnClickListener {
         this.bindingAdapterPosition = bindingAdapterPosition
         this.parent = parent
     }
-    constructor(){
-    }
+    constructor()
 
     override fun onClick(v: View) {
         when (v.id) {
